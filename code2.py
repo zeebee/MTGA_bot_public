@@ -145,7 +145,7 @@ def image_to_text(image):
 
     im = ImageGrab.grab(image)
 
-    #resize_im = im.resize((830, 55), resample=Image.NEAREST) #(width, height)
+    #resize_im = im.resize((0, 0), resample=Image.NEAREST) #(width, height)
 
     text = pytesseract.image_to_string(cv2.cvtColor(numpy.array(im), cv2.IMREAD_GRAYSCALE),
                                            lang='eng')
@@ -167,7 +167,7 @@ def CordsToImage(y1, x1, y2, x2):
     im = ImageGrab.grab(box)
 
     if box != (0, 0, 0, 0):
-        resize_im = im.resize((170, 139), resample=Image.NEAREST) #(170, 139) The values work when resizing image for
+        resize_im = im.resize((0, 0), resample=Image.NEAREST) #(170, 139) The values work when resizing image for
                                                                 # the amount of cards in hand
 
         text = pytesseract.image_to_string(cv2.cvtColor(numpy.array(resize_im), cv2.IMREAD_GRAYSCALE),
@@ -202,16 +202,15 @@ def CordsToImage(y1, x1, y2, x2):
 
     
 def GetHandSize():
-    time.sleep(3)               # almost works(108, 769, 200, 826)
-    #box = (1608, 896, 1878, 950) #best working cords (5, 769, 200, 826)
-    box = (108, 789, 200, 826)
+    time.sleep(3)              
+    box = (0, 0, 0, 0)
     
     pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
     im = ImageGrab.grab(box)
 
     
-    resize_im = im.resize((170, 139), resample=Image.NEAREST) #(170, 139) The values work when resizing image for
+    resize_im = im.resize((0, 0), resample=Image.NEAREST) #(170, 139) The values work when resizing image for
                                                                 # the amount of cards in hand
 
     text = pytesseract.image_to_string(cv2.cvtColor(numpy.array(resize_im), cv2.IMREAD_GRAYSCALE),
@@ -238,16 +237,16 @@ def image_check():
     screen
     will need to adjust the numbers of the box variable below
     '''
-    time.sleep(5)               # almost works(108, 769, 200, 826)
-    box = (266, 630, 430, 1048) #best working cords (5, 769, 200, 826)
+    time.sleep(5)               
+    box = (0, 0, 0, 0) 
     
     pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
     im = ImageGrab.grab()
-    pixel = im.getpixel((428, 629))
+    pixel = im.getpixel((0, 0))
     
     print(pixel)
-    resize_im = im.resize((170, 139), resample=Image.NEAREST)
+    resize_im = im.resize((0, 0), resample=Image.NEAREST)
 
     text = pytesseract.image_to_string(cv2.cvtColor(numpy.array(im), cv2.IMREAD_GRAYSCALE),
                                            lang='eng')
@@ -264,11 +263,11 @@ def image_check():
 #########################################################################
     
 def check_hand_size():
-    mousePos((170, 654))
+    mousePos((0, 0))
     time.sleep(2)
     leftClick()
 
-    mousePos((170, 754))
+    mousePos((0, 0))
 
         
 class bot():
@@ -313,19 +312,19 @@ class bot():
         '''
         
         # coords of any text on the load screen
-        ##box = (683, 711, 842, 765)
+        
         time.sleep(3)
         im = ImageGrab.grab()
-        color = im.getpixel((220, 816))
+        color = im.getpixel((0, 0))
             
-        reference_color = im.getpixel((220, 816))
+        reference_color = im.getpixel((0,0))
         
         print(color)
 
         while color == reference_color:
             time.sleep(3)
             im = ImageGrab.grab()
-            reference_color = im.getpixel((220, 816))
+            reference_color = im.getpixel((0, 0))
             print("Waiting to play \n")
             #print("color:", color)
             #print("reference color:", reference_color)
@@ -358,7 +357,7 @@ class bot():
 
     def CheckDeck(self):
         # Checks if the one of the colors matches the name of the deck
-            name = CordsToImage(1608, 896, 1878, 950)
+            name = CordsToImage(0, 0, 0, 0)
 
             if (name == "white\n"):
                 name = "white"
@@ -376,13 +375,13 @@ class bot():
             return name
 
     def getdeck(self):
-        box = (871, 843, 985, 888)
+        box = (0, 0,0, 0)
 
-        decks = ((366, 230),
-                 (618, 192),
-                 (840, 197),
-                 (1121, 198),
-                 (145, 337)
+        decks = ((0, 0),
+                 (0, 0),
+                 (0, 0),
+                 (0, 0),
+                 (0, 0)
                  )
 
         colors = []
@@ -393,7 +392,7 @@ class bot():
 
         im = ImageGrab.grab(box)
 
-        resize_im = im.resize((200, 50), resample=Image.NEAREST)
+        resize_im = im.resize((0, 0), resample=Image.NEAREST)
 
         text = pytesseract.image_to_string(cv2.cvtColor(numpy.array(im), cv2.IMREAD_GRAYSCALE),
                                            lang='eng')
@@ -422,7 +421,7 @@ class bot():
         time.sleep(1)
         
         # move cursor to play row and left click
-        mousePos((1311, 253)) #'Play' the button found under "Find Match"
+        mousePos((0, 0)) #'Play' the button found under "Find Match"
         time.sleep(2)
         leftClick()
 
@@ -471,17 +470,17 @@ class bot():
     def check_my_turn(self):
         # will take a snapshot of the area where the bigger button on bottom right
         # corner of the screen based on the coordinates
-        ##box = (1267, 765, 1389, 797)
+        
 
-        ##box = (1446, 861, 1653, 906)
-        box = (1674, 923, 1880, 975)
+        
+        box = (0, 0, 0, 0)
 
         # the path to use tesseract in program. May be different depending on location of file
         pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
         im = ImageGrab.grab(box)
 
-        resize_im = im.resize((250, 70), resample = Image.NEAREST)
+        resize_im = im.resize((0, 0), resample = Image.NEAREST)
         #im.show()
 
         #resize_im.show()
@@ -499,11 +498,11 @@ class bot():
     def CheckMyTurn(self):
         #will check if the button on bottom right is orange, indicating
         #its the bots turn
-        box = (1504, 923, 1684, 933)
+        box = (0, 0, 0, 0)
         
         im = ImageGrab.grab()
         #im.show()
-        pixel = im.getpixel((1684, 933))
+        pixel = im.getpixel((0, 0))
         #print(pixel)
         return pixel
 
@@ -521,57 +520,36 @@ class bot():
         # The middle cords of each card in your hand
         # direction of cords: (left -> right, up -> down)
         hand = {
-            0: (346, 845),
-            1: (486, 845),
-            2: (635 + pointer, 845),
-            3: (784 + pointer, 845),
-            4: (915 + pointer, 845),
-            5: (1046 + pointer, 845),
-            6: (1177 + pointer, 845),
-            7: (1226 + pointer, 845)
+            0: (0, 0),
+            1: (0, 0),
+            2: (0 + pointer, 0),
+            3: (0+ pointer, 0),
+            4: (0 + pointer, 0),
+            5: (0 + pointer, 0),
+            6: (0 + pointer, 0),
+            7: (0 + pointer, 0)
         }
 
         AreaOfEnlargedCards = {
-            0: (428, 632),
-            1: (568, 632),
-            2: (708, 632),
-            3: (848, 632),
-            4: (988, 632),
-            5: (1128, 632),
-            6: (1268, 632),
-            7: (1408, 632),
+            0: (0, 0),
+            1: (0, 0),
+            2: (0, 0),
+            3: (0, 0),
+            4: (0, 0),
+            5: (0, 0),
+            6: (0, 0),
+            7: (0, 0),
             }
 
-        '''
-        method will first check if YOU are playing first or second
-        this will be determined when the game asks if you are gonna keep or mulligan your hand
-        '''
-        """
-        text = CordsToImage(628, 51, 977, 124)
-
-        time.sleep(2)
-        if text == 'opponent' or text == 'Opponent' \
-           or text == "opponent\n" or text == "Opponent\n":
-            pointer -= 48
-            print("You play second")
-        else:
-            print("You play first")
-        time.sleep(5)
-
-        mousePos(Cords.keep_button)
-        time.sleep(2)
-
-        leftClick()
-        time.sleep(8)
-        """
+       
 
         # while loop will check if the background is the same throughout the whole match
         # if its not, the screen is probably displaying the screen indicating you won or lost
         im = ImageGrab.grab()
         
-        color = im.getpixel((40, 1048)) #get cords of an area of the background during a match
+        color = im.getpixel((0, 0)) #get cords of an area of the background during a match
 
-        reference_color = im.getpixel((40, 1048))
+        reference_color = im.getpixel((0, 0))
 
         print(reference_color)
         print(color)
@@ -582,34 +560,27 @@ class bot():
         #start = 0
         
         
-        while color == reference_color or sum(reference_color) in range(302, 315):
+        while color == reference_color or sum(reference_color) in range(0, 0):
 
             #this section checks if the background is blue.
             #if it is, it will concede the match
             # blue background messes with the program
             
             im = ImageGrab.grab()
-            concede_color = im.getpixel((535, 64))
+            concede_color = im.getpixel((0, 0))
             #print(concede_color)
-            if concede_color[2] >= 190:
-                mousePos((1506, 28))
+            if concede_color[2] >= 0:
+                mousePos((0, 0))
                 leftClick()
                 time.sleep(1.5)
-                mousePos((770, 508))
+                mousePos((0, 0))
                 leftClick()
 
             Broken = False
             
             pixel = self.CheckMyTurn() # returns pixel color of bottom right button
             
-            if sum(pixel) in range(300, 490):
-                """
-                CardsInHand = CordsToImage(5, 769, 200, 826)
-                if not CardsInHand or type(CardsInHand) != int:
-                    start = hand[0]
-                elif type(CardsInHand) == int and CardsInHand <= 8:
-                    start = hand[-CardsInHand]
-                """
+            if sum(pixel) in range(0, 0):
                 
                 #Loop will select cards based on the cords from 'hand' dictionary
                 # This will also be during 'Main Phase'
@@ -631,32 +602,32 @@ class bot():
                            or (j == 'All')\
                            or (j == 'Attack') or (j == 'AllAttack')\
                            or (j == 'AlLAttack') or (j == 'Attack.'):
-                            mousePos((1376, 768))
+                            mousePos((0, 0))
                             leftClick()
                             time.sleep(1)
                             leftClick()
-                            mousePos((22, 598))
+                            mousePos((0, 0))
                             break
                         
 
                         elif (j == 'Blocks')\
                              or (j == 'NoBlocks')\
                              or (j == 'Block'):
-                            mousePos((1376, 768))
+                            mousePos((0, 0))
                             leftClick()
                             time.sleep(1)
                             leftClick()
-                            mousePos((22, 598))
+                            mousePos((0, 0))
                             break
                         elif (j == "Opponent's Turn") or\
                              (j == "Opponent") or\
                              (j == "Opponent's"):
                             print("part 1")
                             print("breaking out of loop")
-                            mousePos((1518, 525))
+                            mousePos((0, 0))
                             time.sleep(1)
                             leftClick()
-                            mousePos((22, 598))
+                            mousePos((0, 0))
                             Broken = True
                             break
 
@@ -664,13 +635,13 @@ class bot():
                         break
                     
                     #predefined area to click on to start moving the cursor
-                    mousePos((1518, 525)) 
+                    mousePos((0, 0)) 
                     ##leftClick()
                     
                     mousePos(hand[i])
                     time.sleep(1)
                     # will grab an image of the whole screen
-                    im = ImageGrab.grab() #(266, 630, 430, 1048)
+                    im = ImageGrab.grab() 
 
                     # will get the pixel of defined cords
                     aura = im.getpixel(AreaOfEnlargedCards[i])
@@ -680,11 +651,11 @@ class bot():
                     #aura = sum(aura)
 
                     # if the sum of the pixel is within this range...
-                    #if aura in range(379, 629):
-                    if aura[2] >= 102 or sum(aura) in range(379, 670):
+                    
+                    if aura[2] >= 102 or sum(aura) in range(0, 0):
                         doubleClick()
                         time.sleep(.5)
-                        mousePos((22, 598))
+                        mousePos((0, 0))
                         time.sleep(.7)
                         leftClick()
                         time.sleep(1.3)
@@ -706,11 +677,11 @@ class bot():
                             or (j == 'Cancel') or (j == 'AlLAttack')\
                             or (j == 'Attack.'):
                             print("part 2")
-                            mousePos((1376, 768))
+                            mousePos((0, 0))
                             leftClick()
                             time.sleep(1)
                             leftClick()
-                            mousePos((22, 598))
+                            mousePos((0, 0))
                             break
                         elif j == 'Next' or j == "`Next":
                             pass
@@ -720,7 +691,7 @@ class bot():
                            j == "Opponent's":
                             
                             print("breaking out of loop")
-                            mousePos((1518, 525)) 
+                            mousePos((0, 0)) 
                             Broken = True
                             break
 
@@ -730,18 +701,18 @@ class bot():
                       
                     if i >= 7:               
                         # will double click the bottom right button
-                        mousePos((1376, 768))
+                        mousePos((0, 0))
                         leftClick()
                         time.sleep(1)
                         #leftClick()
-                        mousePos((22, 598))
+                        mousePos((0, 0))
 
                     pointer = 0
                         
             time.sleep(3)
             im = ImageGrab.grab()
             # reference_color will be used to compare with 'color' 
-            reference_color = im.getpixel((40, 1048))
+            reference_color = im.getpixel((0, 0))
             #print(color)
             #print(reference_color)
             count += 1
@@ -753,12 +724,7 @@ class bot():
         return
 
 
-bot1 = bot(email, password)
-bot2 = bot(email, password)
-bot3 = bot(email, password)
-bot4 = bot(email, password)
 
-accounts = [bot1, bot2, bot3, bot4]
 #"""
 for account in accounts:
     time.sleep(5)
