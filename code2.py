@@ -53,16 +53,8 @@ def get_cords():
 
 
 def screenGrabfull():
-    # box = (264,182,1416,860)
-
-    # takes a full snapshot of the screen
-    im = ImageGrab.grab()
-
-    ##im = ImageGrab.grab()
-
-    # the first argument is the location which to save the file and the second is the file format
-    # the location is is called through os.getcwd()
-    im.save(os.getcwd() + '\\full_snap__' + str(int(time.time())) + '.png', 'PNG')
+    #function used to help take a picture of screen to get the pixels of image
+    pass
 
 
 class Cords():
