@@ -111,6 +111,7 @@ class Cords():
              3: (0, 0),
              4: (0, 0)
              }
+    
 def leftClick():
     win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, 0, 0)
     time.sleep(.1)
@@ -214,8 +215,7 @@ def GetHandSize():
     im = ImageGrab.grab(box)
 
     
-    resize_im = im.resize((0, 0), resample=Image.NEAREST) #(170, 139) The values work when resizing image for
-                                                                # the amount of cards in hand
+    resize_im = im.resize((0, 0), resample=Image.NEAREST) 
 
     text = pytezzeret.image_to_string(cv2.cvtColor(numpy.array(resize_im), cv2.IMREAD_GRAYSCALE),
                                            lang='eng')
