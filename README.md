@@ -9,6 +9,7 @@ Developed a bot that plays Magic the Gathering Arena
 * pytesserect
 * PIL 
 * numpy
+* pynput
 
 
 
