@@ -1,5 +1,8 @@
 """
 All coordinates assume a screen resolution of 1920 x 1080
+
+This version of the code will not have any of the correct cordinates because I do not want anyone to just copy
+and paste this code. If you are an interviewer, I can provide you the working code.
 """
 
 
@@ -60,49 +63,49 @@ def screenGrabfull():
 
 class Cords():
     #Cords of 'retry button' on "Unknown Error" screen
-    retry_button = (935, 524)
+    retry_button = (0, 0)
     
     # Coords of buttons while in login screen
-    login_button = (756, 706)
+    login_button = (0, 0)
 
     # Coords found in main menu screen
-    setting_button = (1779, 36)
-    log_out = (778, 534)
-    exit_game = (796, 489)
-    ok_button = (930, 519)
+    setting_button = (0, 0)
+    log_out = (0, 0)
+    exit_game = (0, 0)
+    ok_button = (0, 0)
 
     # Coords in main menu screen
-    play_button = (1308, 796)  # Bottom right button in main menu
-    all_play_button = (978, 100)
+    play_button = (0, 0)  # Bottom right button in main menu
+    all_play_button = (0, 0)
 
     # Cords to move cursor to deck after pressing 'play' button
-    deck = (1388, 630)
+    deck = (0, 0)
 
     # Coords of deck shown in the right side nav bar menu
-    deck_right_side_menu = (981, 598)
+    deck_right_side_menu = (0, 0)
 
     # Coords of buttons/images while playing a match
-    keep_button = (854, 702)
+    keep_button = (0, 0)
     
-    click_cont = (691, 394, 843, 845)
+    click_cont = (0, 0, 0, 0)
 
     # The middle cords of each card in your hand
     hand = {
-        1: (346, 845),
-        2: (486, 845),
-        3: (635, 845),
-        4: (784, 845),
-        5: (915, 845),
-        6: (1046, 845),
-        7: (1177, 845),
+        1: (0, 0),
+        2: (0, 0),
+        3: (0, 0),
+        4: (0, 0),
+        5: (0, 0),
+        6: (0, 0),
+        7: (0, 0),
         }
 
     #Cords for deck position
-    decks = {0: (366, 230),
-             1: (618, 192),
-             2: (840, 197),
-             3: (1121, 198),
-             4: (145, 337)
+    decks = {0: (0, 0),
+             1: (0, 0),
+             2: (0,0),
+             3: (0, 0),
+             4: (0, 0)
              }
 def leftClick():
     win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, 0, 0)
@@ -156,15 +159,14 @@ def image_to_text(image):
     return split_text
 
 def CordsToImage(y1, x1, y2, x2):
-    time.sleep(1)               # almost works(108, 769, 200, 826)
-    #box = (1608, 896, 1878, 950) #best working cords (5, 769, 200, 826)
+    time.sleep(1)              
     box = (y1, x1, y2, x2)
     
     pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
     im = ImageGrab.grab(box)
 
-    if box != (1608, 896, 1878, 950):
+    if box != (0, 0, 0, 0):
         resize_im = im.resize((170, 139), resample=Image.NEAREST) #(170, 139) The values work when resizing image for
                                                                 # the amount of cards in hand
 
