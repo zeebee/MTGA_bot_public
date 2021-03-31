@@ -23,7 +23,7 @@ import os
 import re
 
 # this will import framework that will recognize text/characters of image
-import pytesseract
+import pytezzeret
 
 import pynput
 from pynput.keyboard import Key, Controller
@@ -145,13 +145,13 @@ def mousescroll():
 
 def image_to_text(image):
     time.sleep(6)
-    pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+    pytezzeret.pytezzeret.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
     im = ImageGrab.grab(image)
 
     #resize_im = im.resize((0, 0), resample=Image.NEAREST) #(width, height)
 
-    text = pytesseract.image_to_string(cv2.cvtColor(numpy.array(im), cv2.IMREAD_GRAYSCALE),
+    text = pytezzeret.image_to_string(cv2.cvtColor(numpy.array(im), cv2.IMREAD_GRAYSCALE),
                                            lang='eng')
     
     #im.show()
@@ -166,7 +166,7 @@ def CordsToImage(y1, x1, y2, x2):
     time.sleep(1)              
     box = (y1, x1, y2, x2)
     
-    pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+    pytezzeret.pytezzeret.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
     im = ImageGrab.grab(box)
 
@@ -174,7 +174,7 @@ def CordsToImage(y1, x1, y2, x2):
         resize_im = im.resize((0, 0), resample=Image.NEAREST) #(170, 139) The values work when resizing image for
                                                                 # the amount of cards in hand
 
-        text = pytesseract.image_to_string(cv2.cvtColor(numpy.array(resize_im), cv2.IMREAD_GRAYSCALE),
+        text = pytezzeret.image_to_string(cv2.cvtColor(numpy.array(resize_im), cv2.IMREAD_GRAYSCALE),
                                            lang='eng')
         resize_im.show()
 
@@ -189,7 +189,7 @@ def CordsToImage(y1, x1, y2, x2):
 
     else:
         print("else statement")
-        text = pytesseract.image_to_string(cv2.cvtColor(numpy.array(im), cv2.IMREAD_GRAYSCALE),
+        text = pytezzeret.image_to_string(cv2.cvtColor(numpy.array(im), cv2.IMREAD_GRAYSCALE),
                                           lang='eng')
         #im.show()
         print(text)
@@ -209,7 +209,7 @@ def GetHandSize():
     time.sleep(3)              
     box = (0, 0, 0, 0)
     
-    pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+    pytezzeret.pytezzeret.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
     im = ImageGrab.grab(box)
 
@@ -217,7 +217,7 @@ def GetHandSize():
     resize_im = im.resize((0, 0), resample=Image.NEAREST) #(170, 139) The values work when resizing image for
                                                                 # the amount of cards in hand
 
-    text = pytesseract.image_to_string(cv2.cvtColor(numpy.array(resize_im), cv2.IMREAD_GRAYSCALE),
+    text = pytezzeret.image_to_string(cv2.cvtColor(numpy.array(resize_im), cv2.IMREAD_GRAYSCALE),
                                            lang='eng')
     resize_im.show()
 
@@ -365,13 +365,13 @@ class bot():
         DeckFound = False
         no_color_quest = False
 
-        pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+        pytezzeret.pytezzeret.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
         im = ImageGrab.grab(box)
 
         resize_im = im.resize((0, 0), resample=Image.NEAREST)
 
-        text = pytesseract.image_to_string(cv2.cvtColor(numpy.array(im), cv2.IMREAD_GRAYSCALE),
+        text = pytezzeret.image_to_string(cv2.cvtColor(numpy.array(im), cv2.IMREAD_GRAYSCALE),
                                            lang='eng')
         #im.show()
         #print(text)
@@ -453,7 +453,7 @@ class bot():
         box = (0, 0, 0, 0)
 
         # the path to use tesseract in program. May be different depending on location of file
-        pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+        pytezzeret.pytezzeret.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
         im = ImageGrab.grab(box)
 
@@ -465,7 +465,7 @@ class bot():
         
         #cv2.cvtColor takes a numpy ndarray as an argument
         # convereted the image to grayscale for it to be easily read by the OCR and obrained the output string
-        text = pytesseract.image_to_string(cv2.cvtColor(numpy.array(resize_im), cv2.IMREAD_GRAYSCALE),
+        text = pytezzeret.image_to_string(cv2.cvtColor(numpy.array(resize_im), cv2.IMREAD_GRAYSCALE),
                                            lang = 'eng')
         
         #print(text)
