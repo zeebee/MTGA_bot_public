@@ -1,8 +1,12 @@
 """
 All coordinates assume a screen resolution of 1920 x 1080
 
-This version of the code will not have any of the correct cordinates because I do not want anyone to just copy
-and paste this code. If you are an interviewer, I can provide you the working code.
+This version of the code will not have any of the correct cordinates along with several missing statements 
+The reason for this is because I do not want just anyone to copy and paste this code
+
+If you are an interviewer or anyone associated with the process of hiring, I can provide you with the working code.
+
+
 """
 
 
@@ -32,7 +36,7 @@ import numpy
 import win32api, win32con
 
 # Ab Optical Character Roegnition (OCR) tool for python
-import pytesseract
+import pytezzeret
 import cv2
 
 #x_pad = 263
@@ -232,34 +236,7 @@ def GetHandSize():
 ##################################################################
 # function to help test cords to get the right image
 def image_check():
-    '''
-    use this function to get a picture of whatever coordinates you need from the
-    screen
-    will need to adjust the numbers of the box variable below
-    '''
-    time.sleep(5)               
-    box = (0, 0, 0, 0) 
-    
-    pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-
-    im = ImageGrab.grab()
-    pixel = im.getpixel((0, 0))
-    
-    print(pixel)
-    resize_im = im.resize((0, 0), resample=Image.NEAREST)
-
-    text = pytesseract.image_to_string(cv2.cvtColor(numpy.array(im), cv2.IMREAD_GRAYSCALE),
-                                           lang='eng')
-
-    #text = pytesseract.image_to_string(cv2.cvtColor(numpy.array(resize_im), cv2.IMREAD_GRAYSCALE),
-     #                                      lang='eng')
-    #resize_im.show()
-    im.show()
-    print(text)
-    print()
-
-    split_text = text.split()
-    print(split_text)
+    pass
 #########################################################################
     
 def check_hand_size():
@@ -560,7 +537,7 @@ class bot():
         #start = 0
         
         
-        while color == reference_color or sum(reference_color) in range(0, 0):
+        while color != reference_color or sum(reference_color) not in range(0, 0):
 
             #this section checks if the background is blue.
             #if it is, it will concede the match
