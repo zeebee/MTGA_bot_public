@@ -700,6 +700,9 @@ class bot():
         leftClick()
         return
 
+bot1 = (email, password)
+    
+account = [bot1, bot2, bot3]
 
 
 #"""
