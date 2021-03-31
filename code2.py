@@ -751,10 +751,10 @@ class bot():
         return
 
 
-bot1 = bot("lyoshikawa3914@gmail.com", "Jojolion92")
-bot2 = bot("lawrenceyoshikawa@yahoo.com", "Jojolion1992!")
-bot3 = bot("lyoshikawa3914@smail.pcd.edu", "Jojolion1992!")
-bot4 = bot("lyoshik@wgu.edu", "Jojolion1992!")
+bot1 = bot(email, password)
+bot2 = bot(email, password)
+bot3 = bot(email, password)
+bot4 = bot(email, password)
 
 accounts = [bot1, bot2, bot3, bot4]
 #"""
