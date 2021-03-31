@@ -6,7 +6,7 @@ Developed a bot that plays Magic the Gathering Arena
 * The other purpose is to grind gold on Arena without spending time playing the game. 
 
 # Technologies:
-* pytesserect
+* pytesseract
 * PIL 
 * numpy
 * pynput
