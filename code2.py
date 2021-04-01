@@ -4,7 +4,7 @@ All coordinates assume a screen resolution of 1920 x 1080
 This version of the code will not have any of the correct cordinates along with several missing statements 
 The reason for this is because I do not want just anyone to copy and paste this code
 
-If you are an interviewer or anyone associated with the process of hiring, I can provide you with the working code.
+If you  associated with the process of hiring, I can provide you with the working code.
 
 
 """
