@@ -14,29 +14,19 @@ If you  associated with the process of hiring, I can provide you with the workin
 # can be used to  copy the contents of the scree or the clipboard to PIL image memory
 # ImageOps allows the program to perform grayscaling operations on images
 from PIL import Image, ImageGrab, ImageOps
-
-# provides a way of using operating system dependent functionality
-# allows you to interface with underlying operating system that python is running
 import os
-
-# allows program to split multiple delimiters using a split function
 import re
-
-# this will import framework that will recognize text/characters of image
 import pytezzeret
-
 import pynput
 from pynput.keyboard import Key, Controller
 from pynput.mouse import Controller
-
 import time
-
 from numpy import *
 import numpy
 import win32api, win32con
 
 # Ab Optical Character Roegnition (OCR) tool for python
-import pytezzeret
+import pytezzeret 
 import cv2
 
 #x_pad = 263
@@ -44,8 +34,7 @@ import cv2
 keyboard = Controller()
 
 def get_cords():
-    # gets the coordinates of whereever the cursor is pointing to
-
+    """ Gets the coordinates of whereever the cursor is pointing to. """
     x, y = win32api.GetCursorPos()
     #x = x - x_pad
     #y = y - y_pad
@@ -53,12 +42,13 @@ def get_cords():
 
 
 def screenGrabfull():
-    #function used to help take a picture of screen to get the pixels of image
+    """Function used to help take a picture of screen to get the pixels of image"""
     pass
 
 
 class Cords():
-    #Cords of 'retry button' on "Unknown Error" screen
+    """ All the Coordinates necessary for important movements or buttons. """
+    # coords of 'retry button' on "Unknown Error" screen
     retry_button = (0, 0)
     
     # Coords of buttons while in login screen
@@ -137,6 +127,7 @@ def mousescroll():
     mouse.scroll(10, 0)
 
 def image_to_text(image):
+    """Reading the text that is embedded in images and spliting it. """
     time.sleep(6)
     pytezzeret.pytezzeret.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
@@ -152,7 +143,6 @@ def image_to_text(image):
     split_text = text.split()
     print(split_text)
     
-
     return split_text
 
 def CordsToImage(y1, x1, y2, x2):
@@ -245,8 +235,7 @@ class bot():
         self.password = password
 
     def login_screen(self):
-        # location of the login screen
-        # pressing the settings button on top right corner of window
+       """ location of the login screen pressing the settings button on top right corner of window """
 
         keyboard = pynput.keyboard.Controller()
 
@@ -437,23 +426,15 @@ class bot():
         return
 
     def check_my_turn(self):
-        # will take a snapshot of the area where the bigger button on bottom right
-        # corner of the screen based on the coordinates
-        
-
-        
+        """ will take a snapshot of the area where the bigger button on bottom rightcorner of the screen based on the coordinates """
         box = (0, 0, 0, 0)
 
         # the path to use tesseract in program. May be different depending on location of file
         pytezzeret.pytezzeret.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-
         im = ImageGrab.grab(box)
-
         resize_im = im.resize((0, 0), resample = Image.NEAREST)
         #im.show()
-
         #resize_im.show()
-
         
         #cv2.cvtColor takes a numpy ndarray as an argument
         # convereted the image to grayscale for it to be easily read by the OCR and obrained the output string
@@ -465,8 +446,7 @@ class bot():
         return text.split()
 
     def CheckMyTurn(self):
-        #will check if the button on bottom right is orange, indicating
-        #its the bots turn
+        """will check if the button on bottom right is orange, indicating its the bots turn. """
         box = (0, 0, 0, 0)
         
         im = ImageGrab.grab()
@@ -476,15 +456,12 @@ class bot():
         return pixel
 
     def gameplay(self):
-        """
-        the variable 'pointer' is the variable that will shift the cordinates
-         depending if the hand size is even or odd
+        """ The variable 'pointer' is the variable that will shift the cordinates
+            depending if the hand size is even or odd
         """
         time.sleep(8)
         keyboard = pynput.keyboard.Controller()
         pointer = 0
-
-        
 
         # The middle cords of each card in your hand
         # direction of cords: (left -> right, up -> down)
@@ -509,7 +486,6 @@ class bot():
             6: (0, 0),
             7: (0, 0),
             }
-
        
 
         # while loop will check if the background is the same throughout the whole match
